@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html xmlns:th="https://www.thymeleaf.org"
+      th:replace="~{layout :: layout (~{::body},'manage')}">
+
+<body>
+
+
+<h2>Department Information</h2>
+
+
+<table class="table table-striped" th:object="${department}">
+    <tr>
+        <th>Name</th>
+        <td><b th:text="*{name}"></b></td>
+    </tr>
+    <tr>
+        <th>Location</th>
+        <td th:text="*{location}" /></td>
+    </tr>
+    <tr>
+        <th>Number</th>
+        <td th:text="*{number}" /></td>
+    </tr>
+</table>
+
+<a th:href="@{{deptNumber}/modify(deptNumber=${department.number})}" class="btn btn-default">Edit
+    Department</a>
+<form th:action="@{{deptNumber}(deptNumber=${department.number})}" method="post">
+    <button class="btn btn-default">Delete Department</button>
+</form>
+<br />
+<br />
+<br />
+
+</body>
+
+</html>
